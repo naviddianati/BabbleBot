@@ -6,7 +6,7 @@ Created on Aug 11, 2021
 '''
 import numpy as np
 import pandas as pd
-from nltk.tokenize import sent_tokenize, word_tokenize
+from nltk.tokenize import word_tokenize
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 from . import models, utils, mycallbacks
 import tensorflow.keras as keras

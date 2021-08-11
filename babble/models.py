@@ -9,12 +9,17 @@ import tensorflow.keras as keras
 
 def get_model_1(input_dim, output_dim, batch_size, sequence_length):
         """Model expects a 2D input array where the value at
-        each timestep is integer-encoded"""
+        each timestep is integer-encoded. The output is 3D since
+        that target is one-hot-encoded"""
         
         # LSTM latent dimension
         latent_dim = 1000
         
-        layer1 = keras.layers.Embedding(input_dim=input_dim, output_dim=1000, batch_input_shape=(batch_size, sequence_length))
+        layer1 = keras.layers.Embedding(
+            input_dim=input_dim,
+            output_dim=1000,
+            batch_input_shape=(batch_size, sequence_length)
+            )
         layer2 = keras.layers.LSTM(latent_dim, return_sequences=True, stateful=True,)
         layer3 = keras.layers.BatchNormalization()
         layer4 = keras.layers.Dropout(0.2)
